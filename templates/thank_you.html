@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Set text color to blue for paragraph and other text */
+        .thank-you-message p {
+            color: blue;
+        }
+
+        .thank-you-message {
+            color: blue; /* Apply blue color to all text inside the thank-you-message div */
+        }
+
+        /* Keep the 'Thank You!' heading in black */
+        .thank-you-message h1 {
+            color: black;
+        }
+
+        /* Style the button with a blue color */
+        .button {
+            background-color: blue;
+            color: white;
+            padding: 8px 16px;  /* Make button smaller */
+            font-size: 14px; /* Smaller font size */
+            border-radius: 5px; /* Optional: add rounded corners */
+            text-decoration: none; /* Remove underline */
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: darkblue; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-message">
+        <h1>Rahmat 🎉!</h1>
+        <p>Xabaringiz muvaffaqiyatli yuborildi. Tez orada sizga aloqaga chiqmaiz🎉🎉🎉🎇🎇🎇.</p>
+    </div>
+    <a href="{% url 'me:index_page' %}" class="button button-a button-big button-rouded">Bosh sahifaga qaytish</a>
+</body>
+</html>

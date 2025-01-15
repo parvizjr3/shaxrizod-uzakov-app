@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Detail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e0f7fa; /* Light cyan background for the body */
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .contact-name {
+            font-weight: bold;
+            color: #007bff;  /* Blue color for better visibility */
+            word-wrap: break-word;  /* Allow text to wrap */
+            text-align: center;  /* Ensure it aligns well */
+            font-size: 1.8rem;  /* Larger font size for name */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .details {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            margin-bottom: 15px;
+        }
+
+        .details strong {
+            color: #007bff;
+        }
+
+        .message-text {
+            word-wrap: break-word;  /* Ensure long words or sentences break to avoid overflow */
+            overflow-wrap: break-word;  /* Prevent overflow */
+            max-width: 100%;  /* Ensure the text doesn’t overflow the container */
+            white-space: normal;  /* Allow normal text wrapping */
+            word-break: break-word;  /* Break words if too long */
+            font-size: 1rem;  /* Font size for message */
+        }
+
+        .btn {
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .footer-section {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="contact-name">{{ contact.name }} {{ contact.surname }}</h1>
+    
+    <div class="details">
+        <p><strong>Email:</strong> {{ contact.email }}</p>
+        <p><strong>Phone:</strong> <a href="tel:{{ contact.phone_number }}">{{ contact.phone_number }}</a></p>
+        <p><strong>Message:</strong></p>
+        <p class="message-text">{{ contact.message }}</p>
+        <p><strong>Created at:</strong> {{ contact.created_at }}</p>
+    </div>
+
+    <div class="text-center">
+        <a href="{% url 'me:contact_list' %}" class="btn btn-secondary">Back to Contacts</a>
+    </div>
+</div>
+
+<div class="footer-section">
+    <p>&copy; Parviz_jr.</p>
+</div>
+
+</body>
+</html>

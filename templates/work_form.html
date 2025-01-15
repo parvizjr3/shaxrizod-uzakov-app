@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ object.pk|default:"Add" }} Work</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e3a5f;  /* Dark blue background for the body */
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #ffffff; /* Keeping the form's container white */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;  /* Increased padding for more space inside */
+            max-width: 650px;  /* Increased max-width to make the container wider */
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-control {
+            font-size: 16px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+            background-color: #ffffff;
+        }
+
+        .form-control:invalid {
+            border-color: #e74c3c;
+            background-color: #fce4e4;
+        }
+
+        .form-control:valid {
+            border-color: #2ecc71;
+            background-color: #e8f5e9;
+        }
+
+        .btn {
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            margin-top: 15px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .footer-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>{{ object.pk|default:"Add" }} Work</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Work</button>
+    </form>
+    <a href="{% url 'me:work_list' %}" class="btn btn-secondary">Cancel</a>
+</div>
+
+</body>
+</html>

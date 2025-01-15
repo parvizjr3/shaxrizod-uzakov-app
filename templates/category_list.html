@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #4169e1;  /* Darker background color */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a049;
+        }
+
+        .btn-secondary {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e64a19;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: 600;
+        }
+
+        td {
+            background-color: #fff;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .action-links {
+            text-align: center;
+        }
+
+        .action-links a {
+            padding: 6px 12px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 10px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            display: block;  /* Stack the action buttons */
+            width: 100%;  /* Ensure buttons take full width */
+            margin-bottom: 10px;
+        }
+
+        .edit-link {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .edit-link:hover {
+            background-color: #45a049;
+        }
+
+        .delete-link {
+            background-color: #ff5722;
+            color: white;
+        }
+
+        .delete-link:hover {
+            background-color: #e64a19;
+        }
+
+        .detail-link {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .detail-link:hover {
+            background-color: #1e88e5;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer-text a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        .top-buttons {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .top-buttons .btn {
+            display: inline-block;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .action-links {
+            width: 200px;  /* Set a smaller width for buttons */
+            margin: 0 auto;  /* Center the buttons horizontally */
+        }
+
+        /* Hide extra categories initially */
+        .extra-categories {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Category List</h1>
+
+    <!-- Top buttons for adding and logging out -->
+    <div class="top-buttons">
+        <a href="{% url 'me:category_create' %}" class="btn btn-primary">Add Category</a>
+        <form action="{% url 'me:logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-secondary">Logout</button>
+        </form>
+        <a href="{% url 'me:dashboard' %}" class="btn btn-info">Back</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>N</th>
+                <th>Name</th>
+                <th>...</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+    {% if forloop.counter <= 15 %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ category.name|slice:":7" }}{% if category.name|length > 7 %}...{% endif %}</td>
+            <td>{{ category.description|slice:":7" }}{% if category.description|length > 7 %}...{% endif %}</td>
+            <td class="action-links">
+                <a href="{% url 'me:category_update' category.pk %}" class="edit-link">Edit</a>
+                <a href="{% url 'me:category_delete' category.pk %}" class="delete-link">Delete</a>
+                <a href="{% url 'me:category_detail' category.pk %}" class="detail-link">Detail</a>
+
+            </td>
+        </tr>
+    {% else %}
+        <tr class="extra-categories">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ category.name|slice:":7" }}{% if category.name|length > 7 %}...{% endif %}</td>
+            <td>{{ category.description|slice:":7" }}{% if category.description|length > 7 %}...{% endif %}</td>
+            <td class="action-links">
+                <a href="{% url 'me:category_update' category.pk %}" class="edit-link">Edit</a>
+                <a href="{% url 'me:category_delete' category.pk %}" class="delete-link">Delete</a>
+                <a href="{% url 'me:category_detail' category.pk %}" class="detail-link">Detail</a>
+            </td>
+        </tr>
+    {% endif %}
+{% empty %}
+    <tr>
+        <td colspan="4" class="text-center">No categories found.</td>
+    </tr>
+{% endfor %}
+
+        </tbody>
+    </table>
+
+    {% if categories|length > 15 %}
+        <div class="text-center">
+            <button id="see-more" class="btn btn-info">See More</button>
+        </div>
+    {% endif %}
+
+    <div class="footer-text">
+        <p>Don't forget this page is for only Parviz_jr </p>
+    </div>
+</div>
+
+<script>
+    document.getElementById('see-more').addEventListener('click', function() {
+        const moreCategories = document.querySelectorAll('.extra-categories');
+        if (moreCategories[0].style.display === "none") {
+            moreCategories.forEach(category => category.style.display = "table-row");
+            this.textContent = "See Less"; // Change button text
+        } else {
+            moreCategories.forEach(category => category.style.display = "none");
+            this.textContent = "See More"; // Change button text
+        }
+    });
+</script>
+
+</body>
+</html>
