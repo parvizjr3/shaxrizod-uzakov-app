@@ -21,7 +21,6 @@ ALLOWED_HOSTS = ['my-app-production-4153.up.railway.app']
 
 
 
-CSRF_TRUSTED_ORIGINS = ['https://your-app-production-4153.up.railway.app']
 
 
 
