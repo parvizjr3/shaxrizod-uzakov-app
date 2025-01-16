@@ -30,12 +30,24 @@ class ThankYouView(TemplateView):
 
 
 # bu dashboard niki
+# class DashboardView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
+#     template_name = 'dashboard.html'
+#     login_url = 'me:login'  # Redirect to login page if not logged in
+
+#     def test_func(self):
+#         return self.request.user.is_superuser  # or any other condition you prefer
+
+
+from django.views.decorators.csrf import csrf_protect
+
+@csrf_protect
 class DashboardView(LoginRequiredMixin, UserPassesTestMixin, TemplateView):
     template_name = 'dashboard.html'
     login_url = 'me:login'  # Redirect to login page if not logged in
 
     def test_func(self):
         return self.request.user.is_superuser  # or any other condition you prefer
+
 
 
 class ContactView(View):
