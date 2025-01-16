@@ -18,7 +18,8 @@ SECRET_KEY = 'django-insecure-pt@%4j7e+5iofsuayu&m0-^2+)vf1@d+9sqi@5wb+6e!n=pkb$
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['my-app.up.railway.app']
+
 
 
 
