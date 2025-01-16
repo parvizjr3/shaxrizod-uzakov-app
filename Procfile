@@ -1,1 +1,2 @@
-gunicorn Parviz.wsgi --log-file -
+web: gunicorn Parviz.wsgi:application --log-file -
+
