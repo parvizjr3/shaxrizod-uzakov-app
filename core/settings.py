@@ -16,12 +16,12 @@ SECRET_KEY = 'django-insecure-pt@%4j7e+5iofsuayu&m0-^2+)vf1@d+9sqi@5wb+6e!n=pkb$
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['my-app-production-4153.up.railway.app']
 
 
 
-
+# peshash deploy ina mondan darkor budas in baroyi crf token bat=royi login page
 CSRF_TRUSTED_ORIGINS = [
     "https://my-app-production-4153.up.railway.app",
 ]
