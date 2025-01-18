@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-pt@%4j7e+5iofsuayu&m0-^2+)vf1@d+9sqi@5wb+6e!n=pkb$
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['my-app-production-4153.up.railway.app']
 
 
@@ -119,13 +119,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# STATIC_URL = 'static/'
+STATIC_URL = 'static/'
 
 
-# # bu static fayllarni uqiydi
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]
+# bu static fayllarni uqiydi
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 
 STATIC_URL = '/static/'
