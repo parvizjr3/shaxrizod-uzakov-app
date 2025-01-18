@@ -7,6 +7,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+
+handler404 = 'me.views.custom_404_view'
+
 #bu yerda hozi app ni ichidagi urlsni registratsiya qildim
 urlpatterns = [
     path('admin/', admin.site.urls),
