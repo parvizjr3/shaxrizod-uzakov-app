@@ -16,15 +16,15 @@ SECRET_KEY = 'django-insecure-pt@%4j7e+5iofsuayu&m0-^2+)vf1@d+9sqi@5wb+6e!n=pkb$
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-DEBUG = True
-ALLOWED_HOSTS = ['my-app-production-4153.up.railway.app']
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 
 
 # peshash deploy ina mondan darkor budas in baroyi crf token bat=royi login page
-CSRF_TRUSTED_ORIGINS = [
-    "https://my-app-production-4153.up.railway.app",
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://my-app-production-4153.up.railway.app",
+# ]
 
 
 
@@ -119,21 +119,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
-
-# bu static fayllarni uqiydi
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]  # For development
-STATIC_ROOT = BASE_DIR / "staticfiles"    # For production
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
 
 # login va logout niki
 # LOGIN_REDIRECT_URL = 'dashboard'  # Redirect after successful login
@@ -147,8 +139,11 @@ LOGIN_REDIRECT_URL = 'me:dashboard'
 
 
 # meddia fayllarni uqish uchun
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 

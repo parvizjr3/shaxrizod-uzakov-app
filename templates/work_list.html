@@ -189,12 +189,12 @@
 
     <!-- Restored Add Work and Logout Buttons -->
     <div class="top-buttons">
-        <a href="{% url 'me:work_create' %}" class="btn btn-primary">Add Work</a>
+        <a href="{% url 'me:work_create' %}" class="btn btn-primary">Ish qo'shish</a>
         <form action="{% url 'me:logout' %}" method="post" style="display:inline;">
             {% csrf_token %}
             <button type="submit" class="btn btn-secondary">Logout</button>
         </form>
-        <a href="{% url 'me:dashboard' %}" class="btn btn-info">Back</a>
+        <a href="{% url 'me:dashboard' %}" class="btn btn-info">Orqaga qaytish</a>
     </div>
 
     <table>
@@ -218,8 +218,8 @@
             <td>{{ work.category.name|slice:":7" }}{% if work.category.name|length > 7 %}...{% endif %}</td>
             <td>{{ work.date }}</td>
             <td class="action-links">
-                <a href="{% url 'me:work_edit' work.pk %}" class="edit-link">Edit</a>
-                <a href="{% url 'me:work_delete' work.pk %}" class="delete-link">Delete</a>
+                <a href="{% url 'me:work_edit' work.pk %}" class="edit-link">Tahrirlash</a>
+                <a href="{% url 'me:work_delete' work.pk %}" class="delete-link">O'chirhsh</a>
                 <a href="{% url 'me:work_detail' work.pk %}" class="detail-link">Detail</a>
             </td>
         </tr>
@@ -231,8 +231,8 @@
             <td>{{ work.category.name|slice:":7" }}{% if work.category.name|length > 7 %}...{% endif %}</td>
             <td>{{ work.date }}</td>
             <td class="action-links">
-                <a href="{% url 'me:work_edit' work.pk %}" class="edit-link">Edit</a>
-                <a href="{% url 'me:work_delete' work.pk %}" class="delete-link">Delete</a>
+                <a href="{% url 'me:work_edit' work.pk %}" class="edit-link">Tahrirlash</a>
+                <a href="{% url 'me:work_delete' work.pk %}" class="delete-link">O'chirhsh</a>
                 <a href="{% url 'me:work_detail' work.pk %}" class="detail-link">Detail</a>
             </td>
         </tr>
@@ -253,7 +253,7 @@
     {% endif %}
 
     <div class="footer-text">
-        <p>Don't forget this page is for only Parviz_jr </p>
+        <p>Bu sahifa faqat Shaxrizod uchun ekanligini unutmang! </p>
     </div>
 </div>
 

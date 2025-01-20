@@ -179,12 +179,12 @@
 
     <!-- Top buttons for adding and logging out -->
     <div class="top-buttons">
-        <a href="{% url 'me:category_create' %}" class="btn btn-primary">Add Category</a>
+        <a href="{% url 'me:category_create' %}" class="btn btn-primary">Kategoriya qo'shish</a>
         <form action="{% url 'me:logout' %}" method="post" style="display:inline;">
             {% csrf_token %}
             <button type="submit" class="btn btn-secondary">Logout</button>
         </form>
-        <a href="{% url 'me:dashboard' %}" class="btn btn-info">Back</a>
+        <a href="{% url 'me:dashboard' %}" class="btn btn-info">Orqaga qaytish</a>
     </div>
 
     <table>
@@ -204,8 +204,8 @@
             <td>{{ category.name|slice:":7" }}{% if category.name|length > 7 %}...{% endif %}</td>
             <td>{{ category.description|slice:":7" }}{% if category.description|length > 7 %}...{% endif %}</td>
             <td class="action-links">
-                <a href="{% url 'me:category_update' category.pk %}" class="edit-link">Edit</a>
-                <a href="{% url 'me:category_delete' category.pk %}" class="delete-link">Delete</a>
+                <a href="{% url 'me:category_update' category.pk %}" class="edit-link">Tahrirlash</a>
+                <a href="{% url 'me:category_delete' category.pk %}" class="delete-link">O'chirish</a>
                 <a href="{% url 'me:category_detail' category.pk %}" class="detail-link">Detail</a>
 
             </td>
@@ -216,8 +216,8 @@
             <td>{{ category.name|slice:":7" }}{% if category.name|length > 7 %}...{% endif %}</td>
             <td>{{ category.description|slice:":7" }}{% if category.description|length > 7 %}...{% endif %}</td>
             <td class="action-links">
-                <a href="{% url 'me:category_update' category.pk %}" class="edit-link">Edit</a>
-                <a href="{% url 'me:category_delete' category.pk %}" class="delete-link">Delete</a>
+                <a href="{% url 'me:category_update' category.pk %}" class="edit-link">Tahrirlash</a>
+                <a href="{% url 'me:category_delete' category.pk %}" class="delete-link">O'chirish</a>
                 <a href="{% url 'me:category_detail' category.pk %}" class="detail-link">Detail</a>
             </td>
         </tr>
@@ -238,7 +238,7 @@
     {% endif %}
 
     <div class="footer-text">
-        <p>Don't forget this page is for only Parviz_jr </p>
+        <p>Bu sahifa faqat Shaxrizod uchun ekanligini unutmang! </p>
     </div>
 </div>
 

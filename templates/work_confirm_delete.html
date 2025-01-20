@@ -87,18 +87,18 @@
 <body>
 
 <div class="container">
-    <h1>Delete Work</h1>
-    <p>Are you sure you want to delete the following work?</p>
+    <h1>Ishni o'chirhsh</h1>
+    <p>Haqiqatan ham quyidagi turkumni oʻchirib tashlamoqchimisiz?</p>
     <p class="work-name">{{ object }}</p>
     <form method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <button type="submit" class="btn btn-danger">Ha, albatta</button>
     </form>
-    <a href="{% url 'me:work_list' %}" class="btn btn-secondary">Cancel</a>
+    <a href="{% url 'me:work_list' %}" class="btn btn-secondary">Bekor qilish</a>
 </div>
 
 <div class="footer-section">
-    <p>&copy; Parviz_jr.</p>
+    <p>&copy; Shaxrizod.</p>
 </div>
 
 </body>

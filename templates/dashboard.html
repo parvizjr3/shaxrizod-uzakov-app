@@ -106,13 +106,13 @@
 <body>
 
 <div class="dashboard-container">
-    <h1>Welcome Parviz_jr</h1>
-    <p>Manage your site from here!</p>
+    <h1>Xushkelibsiz Shaxrizod</h1>
+    <p>Saytingizni shu yerdan boshqaring!</p>
     <ul>
         <a href="/admin/" class="btn btn-warning">Admin Panel</a>
-        <li><a href="{% url 'me:contact_list' %}">Manage Contacts</a></li>
-        <li><a href="{% url 'me:category_list' %}">Manage Categories</a></li>
-        <li><a href="{% url 'me:work_list' %}">Manage Works</a></li>
+        <li><a href="{% url 'me:contact_list' %}">Contact | lar</a></li>
+        <li><a href="{% url 'me:category_list' %}">Kategoriyalar</a></li>
+        <li><a href="{% url 'me:work_list' %}">Ishlar</a></li>
         
         <form action="{% url 'me:logout' %}" method="post" style="display:inline;">
             {% csrf_token %}
@@ -121,7 +121,7 @@
     </ul>
 
     <div class="footer-text">
-        <p>Don't forget this page is for only Parviz_jr </p>
+        <p>Bu sahifa faqat Shaxrizod uchun ekanligini unutmang! </p>
     </div>
 </div>
 

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
     <style>
@@ -134,7 +136,7 @@
         <button type="submit">Login</button>
     </form>
 
-    <a href="{% url 'me:index_page' %}" class="back-button">Back to Home</a>
+    <a href="{% url 'me:index_page' %}" class="back-button">Bosh sahifaga qaytish</a>
 
     {% if user.is_authenticated %}
     {% comment %} <form action="{% url 'me:logout' %}" method="post">
@@ -144,7 +146,7 @@
     {% endif %}
 
     <div class="footer-text">
-        <p>Don't forget this page is for only Parviz_jr </p>
+        <p>Bu sahifa faqat Shaxrizod uchun ekanligini unutmang! </p>
     </div>
 </div>
 

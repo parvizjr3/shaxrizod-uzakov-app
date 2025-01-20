@@ -179,13 +179,13 @@
 
     <!-- Restored Add Contact and Logout Buttons -->
     <div class="top-buttons">
-        <a href="{% url 'me:contact_add' %}" class="btn btn-primary">Add Contact</a>
+        <a href="{% url 'me:contact_add' %}" class="btn btn-primary">Contact qo'shish</a>
         <form action="{% url 'me:logout' %}" method="post" style="display:inline;">  <!-- Changed 'me:logout' to 'logout' -->
             {% csrf_token %}
             <button type="submit" class="btn btn-secondary">Logout</button>
         </form>
         <!-- Back to Dashboard Button -->
-        <a href="{% url 'me:dashboard' %}" class="btn btn-info">Back</a>
+        <a href="{% url 'me:dashboard' %}" class="btn btn-info">Orqaga qaytish</a>
     
         <a href="/admin/" class="btn btn-warning">Admin Panel</a>
     </div>
@@ -220,8 +220,8 @@
             </td>
             <td>{{ contact.message|slice:":7" }}{% if contact.message|length > 7 %}...{% endif %}</td>
             <td class="action-links">
-                <a href="{% url 'me:contact_edit' contact.pk %}" class="edit-link">Edit</a>
-                <a href="{% url 'me:contact_delete' contact.pk %}" class="delete-link">Delete</a>
+                <a href="{% url 'me:contact_edit' contact.pk %}" class="edit-link">Tahrirlash</a>
+                <a href="{% url 'me:contact_delete' contact.pk %}" class="delete-link">O'chirsh</a>
                 <a href="{% url 'me:contact_detail' contact.pk %}" class="detail-link">Detail</a>
             </td>
         </tr>
@@ -238,8 +238,8 @@
             </td>
             <td>{{ contact.message|slice:":7" }}{% if contact.message|length > 7 %}...{% endif %}</td>
             <td class="action-links">
-                <a href="{% url 'me:contact_edit' contact.pk %}" class="edit-link">Edit</a>
-                <a href="{% url 'me:contact_delete' contact.pk %}" class="delete-link">Delete</a>
+                <a href="{% url 'me:contact_edit' contact.pk %}" class="edit-link">Tahrirlash</a>
+                <a href="{% url 'me:contact_delete' contact.pk %}" class="delete-link">O'chirish</a>
                 <a href="{% url 'me:contact_detail' contact.pk %}" class="detail-link">Detail</a>
             </td>
         </tr>
@@ -260,7 +260,7 @@
     {% endif %}
 
     <div class="footer-text">
-        <p>Don't forget this page is for only Parviz_jr </p>
+        <p>Bu sahifa faqat Shaxrizod uchun ekanligini unutmang! </p>
     </div>
 </div>
 
