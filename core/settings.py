@@ -128,6 +128,9 @@ STATICFILES_DIRS = [
 ]
 
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 
 # login va logout niki
 # LOGIN_REDIRECT_URL = 'dashboard'  # Redirect after successful login
