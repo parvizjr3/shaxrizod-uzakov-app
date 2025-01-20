@@ -21,10 +21,12 @@ ALLOWED_HOSTS = ['web-production-6aa1.up.railway.app']
 
 
 
+
 # peshash deploy ina mondan darkor budas in baroyi crf token bat=royi login page
 CSRF_TRUSTED_ORIGINS = [
     "https://web-production-6aa1.up.railway.app",
 ]
+
 
 
 
